@@ -1,0 +1,179 @@
+<div class="content-wrapper" id="product-list">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+        <h1>
+            Product
+            <small>Add New Product</small>
+        </h1>
+        <ol class="breadcrumb">
+            <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+            <li><a href="#">Forms</a></li>
+            <li class="active">General Elements</li>
+        </ol>
+    </section>
+
+    <!-- Main content -->
+    <section class="content">
+        <div class="row">
+            <!--/.col (left) -->
+            <!-- right column -->
+            <div class="col-md-12">
+                <!-- Horizontal Form -->
+                <form class="form-horizontal" id="product-form" action="/control-panel/product/create" method="POST"
+                    enctype="multipart/form-data">
+                    <div class="box box-info">
+                        <div class="box-header with-border">
+                            <h3 class="box-title">Products</h3>
+                            <div class="pull-right">
+                                <a href="/control-panel/products" class="btn btn-info"><i class="fa fa-reply"></i> Back</a>
+                                <button type="submit" class="btn btn-success"><i class="fa fa-save"></i> Save</button>
+                            </div>
+                        </div>
+                        <!-- /.box-header -->
+                        <!-- form start -->
+                        <div class="box-body">
+                            <div class="row">
+                                <div class="col-md-8">
+                                    <div class="box box-success">
+                                        <div class="box-body">
+                                            <h4><span class="text-danger">#</span> Product Detail</h4>
+                                            <div class="form-group">
+                                                <label for="name" class="control-label col-sm-3">Title <span class="text-danger">*</span></label>
+                                                <div class="col-sm-9">
+                                                    <input type="text" id="name" name="name" class="form-control">
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="price" class="control-label col-sm-3">Price <span class="text-danger">*</span></label>
+                                                <div class="col-sm-9">
+                                                    <input type="text" id="price" name="price" class="form-control">
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="stock" class="control-label col-sm-3">Stock <span class="text-danger">*</span></label>
+                                                <div class="col-sm-9">
+                                                    <input type="text" id="stock" name="stock" class="form-control">
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="weight" class="control-label col-sm-3">Weight</label>
+                                                <div class="col-sm-9">
+                                                    <input type="text" id="weight" name="weight" class="form-control">
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="color" class="control-label col-sm-3">Color</label>
+                                                <div class="col-sm-9">
+                                                    <select name="color[]" id="color" class="form-control" multiple="multiple">
+                                                        <option value="black">Black</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="categories" class="control-label col-sm-3">Categories</label>
+                                                <div class="col-sm-9">
+                                                    <select id="categories" name="categories[]" class="form-control"
+                                                        multiple="multiple">
+                                                        {{#each data.categories}}
+                                                        <option value="{{this._id}}">{{ this.name }}</option>
+                                                        {{/each}}
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="shortDescription" class="control-label col-sm-3">Short
+                                                    Description <span class="text-danger">*</span></label>
+                                                <div class="col-sm-9">
+                                                    <textarea id="shortDescription" name="shortDescription" class="form-control"></textarea>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="description" class="control-label col-sm-3">Full
+                                                    Description <span class="text-danger">*</span></label>
+                                                <div class="col-sm-9">
+                                                    <textarea id="description" name="description" class="form-control"></textarea>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="productImages" class="control-label col-sm-3">Product
+                                                    Images</label>
+                                                <div class="col-sm-9">
+                                                    <input id="images" multiple="multiple" type="file" name="images"
+                                                        class="form-control" />
+                                                </div>
+                                            </div>
+                                            <h4><span class="text-danger">#</span> Product Meta for SEO (Optional)</h4>
+                                            <div class="form-group">
+                                                <label for="metaTitle" class="control-label col-sm-3">Meta Title</label>
+                                                <div class="col-sm-9">
+                                                    <input type="text" id="metaTitle" name="metaTitle" class="form-control"></textarea>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="metaKeywords" class="control-label col-sm-3">Meta Keywords</label>
+                                                <div class="col-sm-9">
+                                                    <input type="text" id="metaKeywords" name="metaKeywords" class="form-control"></textarea>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="metaDescription" class="control-label col-sm-3">Meta
+                                                    Description</label>
+                                                <div class="col-sm-9">
+                                                    <textarea id="metaDescription" name="metaDescription" class="form-control"></textarea>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="box box-success">
+                                        <div class="box-body">
+                                            <div class="form-group">
+                                                <label for="publish" class="control-label col-sm-4">Publish</label>
+                                                <div class="col-sm-8">
+                                                    <select name="publish" id="publish" class="form-control">
+                                                        <option value="1">Yes</option>
+                                                        <option value="0">No</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="featureImage" class="control-label col-sm-4">Feature Image</label>
+                                                <div class="col-sm-8">
+                                                    <div class="input-group image-preview">
+                                                        <input type="text" class="form-control image-preview-filename"
+                                                            disabled="disabled">
+                                                        <!-- don't give a name === doesn't send on POST/GET -->
+                                                        <span class="input-group-btn">
+                                                            <!-- image-preview-clear button -->
+                                                            <button type="button" class="btn btn-default image-preview-clear"
+                                                                style="display:none;">
+                                                                <span class="glyphicon glyphicon-remove text-danger"></span>
+                                                            </button>
+                                                            <!-- image-preview-input -->
+                                                            <div class="btn btn-default image-preview-input">
+                                                                <span class="glyphicon glyphicon-folder-open"></span>
+                                                                <span class="image-preview-input-title">Browse</span>
+                                                                <input type="file" accept="image/png, image/jpeg, image/gif"
+                                                                    name="featureImage" /> <!-- rename it -->
+                                                            </div>
+                                                        </span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- /.box-body -->
+                    </div>
+                </form>
+                <!-- /.box -->
+            </div>
+            <!--/.col (right) -->
+        </div>
+        <!-- /.row -->
+    </section>
+    <!-- /.content -->
+</div>
