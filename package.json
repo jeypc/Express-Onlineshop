@@ -16,7 +16,7 @@
     "busboy-body-parser": "^0.3.2",
     "connect-busboy": "^0.0.2",
     "connect-flash": "^0.1.1",
-    "express": "^4.16.4",
+    "express": "^4.17.3",
     "express-handlebars": "^3.0.0",
     "express-minify-html": "^0.12.0",
     "express-paginate": "^1.0.0",
